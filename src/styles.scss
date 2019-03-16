@@ -16,9 +16,17 @@ table {
 #logo {
     float: left;
     background: url("./favicons/favicon-32x32.png");
+	background-size: 32px 32px;
     height: 32px;
     width: 32px;
     margin-top: 0.75rem;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+     #logo {
+		background: url("./favicons/favicon-96x96.png");
+		background-size: 32px 32px;
+     }
 }
 
 .fade-out {

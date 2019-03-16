@@ -1,0 +1,24 @@
+{
+  "name": "guid.store",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build src/index.html --no-source-maps",
+    "watch": "parcel watch src/index.html",
+    "serve": "parcel serve src/index.html",
+    "deploy": "bash tools/deploy.sh"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "node-sass": "^4.11.0",
+    "parcel": "^1.12.2",
+    "sass": "^1.17.3",
+    "tachyons": "^4.11.1"
+  },
+  "dependencies": {
+    "mithril": "^1.1.6",
+    "moment": "^2.24.0"
+  }
+}

@@ -13,7 +13,7 @@ export const HistoryView = {
             return
 
         return m("div",
-            m("h2", "history"),
+            m("h2", "purchase history"),
             m("table", [
                 ...History.get().map(x => m(HistoryItem, { item: x }))
             ])
@@ -29,12 +29,7 @@ const HistoryItem = {
         const item = vnode.attrs.item
         return m("tr", [
             m("td", item.guid),
-            m("td.silver", new moment(item.added).fromNow()),
-            m("td", m("button.ml2", { onclick: () => {
-                    Clipboard.setClipboard(item.guid)
-                    History.add(item.guid)
-                }}, "copy again")
-            )
+            m("td.silver", new moment(item.added).fromNow())
         ])
     }
 }

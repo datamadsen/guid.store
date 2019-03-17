@@ -34,7 +34,7 @@ export const GuidStore = {
 var lastPurchase = null
 function displayPurchaseMessage (vnode) {
     const now = new Date().getTime()
-    if (lastPurchase && now - lastPurchase.getTime() < 5) {
+    if (lastPurchase && now - lastPurchase.getTime() < 10) {
         // Make sure that the class is not on our element.
         vnode.dom.classList.remove("fade-out")
 

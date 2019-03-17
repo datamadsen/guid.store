@@ -21,7 +21,7 @@ export const GuidStore = {
                     GuidGenerator.invalidate(guid)
                     lastPurchase = new Date()
                 }}, "buy"),
-                m("span.ph2.pv1.ml2.o-0", { onupdate: displayPurchaseMessage }, "copied to clipboard :-)"),
+                m("div.o-0.di-ns.ml2-ns", { onupdate: displayPurchaseMessage }, "copied to clipboard :-)"),
             ]),
             m("div.flex-grow-1", [
                 m(HistoryView)
@@ -34,8 +34,11 @@ export const GuidStore = {
 var lastPurchase = null
 function displayPurchaseMessage (vnode) {
     const now = new Date().getTime()
-    if (lastPurchase && now - lastPurchase.getTime() < 10) {
+    if (lastPurchase && now - lastPurchase.getTime() < 5) {
+        // Make sure that the class is not on our element.
         vnode.dom.classList.remove("fade-out")
+
+        // Then add the class but only after a cycle
         window.setTimeout(() => vnode.dom.classList.add("fade-out"), 0)
     }
 }

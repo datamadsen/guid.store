@@ -29,7 +29,7 @@ const HistoryItem = {
         const item = vnode.attrs.item
         return m("tr", [
             m("td", item.guid),
-            m("td.silver", new moment(item.added).fromNow())
+            m("td.silver.dn.dtc-ns", new moment(item.added).fromNow())
         ])
     }
 }

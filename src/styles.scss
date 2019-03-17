@@ -30,7 +30,7 @@ table {
 }
 
 .fade-out {
-  animation: fade-out 1.5s;
+  animation: fade-out 0.5s;
 }
 
 @keyframes fade-out {
@@ -39,6 +39,5 @@ table {
   }
   100% {
     opacity: 0;
-    display: none;
   }
 }

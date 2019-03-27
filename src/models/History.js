@@ -1,4 +1,4 @@
-var history = [];
+let history = [];
 
 export const History = {
     add: function (guid) {
@@ -6,11 +6,15 @@ export const History = {
             guid: guid,
             added: new Date()
         })
+        localStorage.setItem("history", JSON.stringify(history))
     },
     get: function () {
+        if (!history.length)
+            history = JSON.parse(localStorage.getItem("history")) || []
+
         return history.sort()
     },
     any: function () {
-        return history.length > 0
+        return History.get().length > 0
     }
 }

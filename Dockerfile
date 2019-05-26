@@ -1,6 +1,5 @@
-# Dockerfile for guid-store
+# Dockerfile for guid.store
 #
-# First we build the application with yarn and then we serve it with nginx.
 # We set a number of environment variables when serving with nginx. Those
 # variables are necessary for nginx-proxy and letsencrypt-nginx-proxy-companion
 # to work.
@@ -18,13 +17,15 @@ FROM node:lts as build-stage
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install
+COPY . .
 RUN yarn run build
 
 # production-stage
 FROM nginx:stable as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
-ENV VIRTUAL_HOST guid-store.pluto.datam.at
-ENV LETSENCRYPT_HOST guid-store.pluto.datam.at
+ENV VIRTUAL_HOST guid.store
+ENV LETSENCRYPT_HOST guid.store
 ENV LETSENCRYPT_EMAIL tim@datamadsen.dk
+VOLUME /var/log/nginx/guid.store:/var/log/nginx
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

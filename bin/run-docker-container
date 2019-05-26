@@ -1,0 +1,8 @@
+#!/bin/bash
+docker run \
+    --detach \
+    -it \
+    --rm \
+    --name guid.store \
+    --volume /var/log/nginx/guid.store:/var/log/nginx \
+    datamadsen/guid.store

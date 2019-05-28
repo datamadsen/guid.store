@@ -15,9 +15,8 @@
 # build-stage
 FROM node:lts as build-stage
 WORKDIR /app
-COPY package.json yarn.lock ./
-RUN yarn install
 COPY . .
+RUN yarn install
 RUN yarn run build
 
 # production-stage

@@ -72,5 +72,5 @@ jobs:
           git config --global user.email "tim@datamadsen.dk"
           git config --global user.name "guid-store"
           git add .
-          git commit -m "[DEV] Update guid-store version"
+          git commit -m "[DEV] Update guid-store ${{ github.sha }}"
           git push

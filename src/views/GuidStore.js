@@ -11,7 +11,7 @@ export const GuidStore = {
         return m("div.pl2.flex.flex-column", { style: "min-height: 100vh" }, [
             m("div", [
                 m("div#logo"),
-                m("h1.relative", "the guid store DEV")
+                m("h1.relative", "the guid store (hygge)")
             ]),
             m("div", [
                 m("span", guid),

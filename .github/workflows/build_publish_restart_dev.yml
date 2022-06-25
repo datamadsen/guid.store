@@ -61,16 +61,16 @@ jobs:
           token: ${{ secrets.GH_PAT }}
 
       - name: Update guid-store image with kustomize
-        working-directory: gitops/jwt-show/dev
+        working-directory: gitops/guid-store/dev
         run: |
-          kustomize edit set image ghcr.io/datamadsen/jwt-show/jwt.show=ghcr.io/datamadsen/jwt-show/jwt.show:${{ github.sha }}
+          kustomize edit set image ghcr.io/datamadsen/guid.store/guid.store=ghcr.io/datamadsen/guid.store/guid.store:${{ github.sha }}
           cat kustomization.yaml
 
       - name: Commit changes
         working-directory: gitops/guid-store/dev
         run: |
           git config --global user.email "tim@datamadsen.dk"
-          git config --global user.name "jwt.show"
+          git config --global user.name "guid-store"
           git add .
-          git commit -m "[DEV] Update jwt-show version"
+          git commit -m "[DEV] Update guid-store version"
           git push
